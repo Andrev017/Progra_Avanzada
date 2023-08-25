@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Validaciones</title>
+    <link rel="stylesheet" href="/estilos.css">
+
+
+</head>
+<body>
+    <section class="bloque">
+        <h1>Datos Personales</h1>
+        <br>
+
+        <form method="post" action="/post_a.php" >
+            <div class="form">
+
+                <input type="text" name="name" required placeholder="Nombre" minlength="2" maxlength="50" pattern="[A-Za-z]+">
+                <br><br>
+                
+                <input type="text" name="apellidop" required placeholder="Apellido Paterno" minlength="5" maxlength="50" pattern="[A-Za-z]+">
+                <br><br>
+                
+                <input type="text" name="apellidom" required placeholder="Apellido Materno" minlength="5" maxlength="50" pattern="[A-Za-z]+">
+                <br><br>
+
+                <input type="text" name="direccion" required placeholder="Direccion" title="Solo letras mayusculas" minlength="5" maxlength="100" pattern="[A-Z]+">
+                <br><br>
+
+                Fecha de Nacimiento: <input type="date" name="fecha" required min="1900-01-01" max="2023-08-25" > 
+                <br><br>
+
+                <input type="text" name="fijo" required placeholder="Telefono Fijo" title="Solo ingrese 7 números" pattern="[0-9]{7}" > 
+                <br><br>
+
+                <input type="text" name="movil" required placeholder="Telefono Movil" title="Solo ingrese 7 números" pattern="[0-9]{7}" > 
+                <br><br>
+
+                Lugar de Nacimiento: <select name="nacimiento" id="">
+                    <option value="">La Paz</option>
+                    <option value="">Santa Cruz</option>
+                    <option value="">Cochabamba</option>
+                    <option value="">Sucre</option>
+                    <option value="">Tarija</option>
+                    <option value="">Beni</option>
+                    <option value="">Potosi</option>
+                    <option value="">Oruro</option>
+                    <option value="">Pando</option>
+                </select>
+                <br><br>
+
+                Pais de Nacimiento: <select name="pais" id="">
+                    <option value="">Argentina</option>
+                    <option value="">Brazil</option>
+                    <option value="">Bolivia</option>
+                    <option value="">Chile</option>
+                    <option value="">Colombia</option>
+                    <option value="">Ecuador</option>
+                    <option value="">Paraguay</option>
+                    <option value="">Perú</option>
+                    <option value="">Uruguay</option>
+                    <option value="">Venezuela</option>
+                </select>
+                <br><br>
+
+                <input type="email" name="gmail" required placeholder="Gmail">
+                <br><br>
+                
+                Escoja su Facultad: <select name="facultad" id="">
+                    <option value="">Facultad de Ingenieria</option>
+                    <option value="">Facultad de Medicina</option>
+                    <option value="">Facultad de Humanidades</option>
+                    <option value="">Facultad de Economia</option>
+                </select>
+                <br><br>
+
+            </div>
+            <button class="botonsub"><input type="submit" class="btn"></button>
+        </form>
+        
+    </section>
+</body>
+</html>
