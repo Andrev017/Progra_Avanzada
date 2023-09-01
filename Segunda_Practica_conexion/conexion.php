@@ -5,13 +5,11 @@
         $paterno = $_POST['paterno'];
         $materno = $_POST["materno"];
         $direccion = $_POST['direccion'];
-        $fecha_nac = $_POST['fechanac'];
+        //$fecha_nac = $_POST['fechanac'];
         $ci = $_POST['ci'];
         $email = $_POST['email'];
 
 
-
-//  DATABASE SETTINGS 
     define("DB_HOST", "localhost");
     define("DB_NAME", "test_hito2_progra");
     define("DB_USER", "root");
@@ -27,13 +25,33 @@
 
 
         if ($pdo) {
-        
-    
-            //INSERT
-            $sql = "INSERT INTO usuarios (nombre,paterno,email) VALUES (?,?,?)";
+            $sql = "INSERT INTO usuario (nombre,paterno,materno,direccion,ci,email) VALUES (?,?,?,?,?,?)";
             $stmt= $pdo->prepare($sql);
-            $stmt->execute([$nombre, $paterno, $materno, $email]);
+            $stmt->execute([$nombre, $paterno, $materno, $direccion, $ci, $email]);
             echo "Se enviaron los datos!";
+            echo '<br> <br> <br>';
         }
     }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final</title>
+    <link rel="stylesheet" href="/Segunda_Practica_conexion/conexion.css">
+</head>
+<body>
+
+        <button class="btn_1">
+            <a href="/Segunda_Practica_conexion/index.html">Volver al Registro</a>
+        </button>
+
+
+        <button class="btn_2">
+            <a href="/Segunda_Practica_conexion/tablas.php">Entrar a las Listas</a>
+        </button>
+
+</body>
+</html>

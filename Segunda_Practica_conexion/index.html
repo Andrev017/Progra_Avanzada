@@ -4,40 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="/Segunda_Practica_conexion/estilos.css">
+
+
+    <script type="text/javascript">
+        const emailValido = email => {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+        function validar(f){
+            var ok = true;
+            var patron = new RegExp ("[A-Z]");
+            var nn = f.nombre.value;
+            var res = patron.test(nn);
+            var msg = "Debes escribir contenido en los campos:\n";
+            
+            if(nn.length>50) { 
+                    alert("El tamaño maximo es de 50 caracteres");
+                    ok=false;
+                }
+            if (nn===""){
+                alert("Tiene que escribir su nombre");
+                ok=false;
+            } else {
+                
+                if(res==false){	alert("Debe escribir con Mayusculas"); ok=false;}	
+            
+            }
+            if (!emailValido(f.email.value)) {
+                alert("Por favor, escribe un correo electrónico válido");
+                f.email.focus();
+                return false;
+        }
+                if(ok == false)
+                alert(msg);
+            return ok;
+        }
+    </script>
     
 </head>
+
+
 <body>
-    <section class="bloque_1">
+    <section class="bloque">
         <h1>REGIRTRO</h1>
-        <form method="post" action="/Segunda_Practica_conexion/conexion.php">
+        <br>
+
+        <form name="formjs" method = "post" action = "/Segunda_Practica_conexion/conexion.php" onsubmit="return validar(this)">
 
 
-            <input type="text" name="nombre" required  placeholder="Nombre">
+            <input type="text" name="nombre" required  placeholder="Nombre" minlength="2" maxlength="50" pattern="[A-Za-z]+">
             <br><br>
 
-            <input type="text" name="paterno" required placeholder="Apellido Paterno">
+            <input type="text" name="paterno" required placeholder="Apellido Paterno" minlength="5" maxlength="50" pattern="[A-Za-z]+">
             <br><br>
 
-            <input type="text" name="materno" required placeholder="Apelldio Materno">
+            <input type="text" name="materno" required placeholder="Apelldio Materno" minlength="5" maxlength="50" pattern="[A-Za-z]+">
             <br><br>
 
-            <input type="text" name="direccion" required placeholder="Direccion">
+            <input type="text" name="direccion" required placeholder="Direccion" title="Solo letras mayusculas" minlength="5" maxlength="100" pattern="[A-Z]+">
             <br><br>
 
-            <input type="text" name="fechanac" required placeholder="Fecha de Nacimiento">
+            Fecha de Nacimiento: <input type="date" name="fecha" required min="1950-01-01" max="2023-09-01" > 
             <br><br>
 
-            <input type="number" name="ci" required placeholder="Carnet de Identidad">
+            <input type="number" name="ci" required placeholder="Carnet de Identidad"  min="0" max="10000000" >
             <br><br>
 
             <input type="text" name="email" required placeholder="email">
             <br><br>
 
-            <input type="submit">
-            
-            
+
+            <input type = "submit" id="aceptar" value="ENVIAR" class="botonsub">
         </form>
     </section>
+    
 </body>
 </html>
