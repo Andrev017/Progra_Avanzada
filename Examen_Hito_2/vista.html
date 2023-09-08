@@ -47,6 +47,26 @@ Este formulario también tiene que tener los archivos controlador.php y modelo.p
             return ok;
         }
     </script>
+
+
+    <script>
+        function doSearch () {
+            // (A1) GET SEARCH TERM
+            var data = new FormData(document.getElementById("mySearch"));
+            // (A2) AJAX - USE HTTP:// NOT FILE://
+            fetch("controlador.php", { method:"POST", body:data }) 
+            .then(res => res.json())
+            .then(res => {
+                let results = document.getElementById("results");
+                results.innerHTML = "";
+                if (res !== null) { 
+                for (let r of res) {
+                results.innerHTML += `<div>${r.id} - ${r.name}</div>`;
+                }}
+            });
+            return false;
+            }
+    </script>
     
 </head>
 
@@ -82,7 +102,18 @@ Este formulario también tiene que tener los archivos controlador.php y modelo.p
 
 
             <input type = "submit" id="aceptar" value="ENVIAR" class="botonsub">
+            <br><br>
         </form>
+
+        <form id="mySearch" onsubmit="return doSearch()">
+
+            <input type="text" name="search" required >
+    
+            <input type="submit" value="BUSCAR" class="botonsub">
+        </form>
+        <div id="results"></div>
+
     </section>
+
 </body>
 </html>

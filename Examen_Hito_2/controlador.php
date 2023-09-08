@@ -5,10 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD</title>
     <link rel="stylesheet" href="/Examen_Hito_2/css/controlador.css">
+
+    
 </head>
 <body>
 
     <h2>Registros existentes:</h2>
+
+    <div>
+
+    </div>
+
     <table border="1" class="tabala">
         <tr>
             <th>ID</th>
@@ -77,6 +84,16 @@
 
         $conn->close();
     }
+?>
+
+<?php
+    $results = $_DB->select(
+        "SELECT * FROM `usuario` WHERE `nombre` LIKE ?",
+        ["%{$_POST["search"]}%"]
+    );
+    
+    // Resultados
+    echo json_encode(count($results)==0 ? null : $results);
 ?>
 
 
