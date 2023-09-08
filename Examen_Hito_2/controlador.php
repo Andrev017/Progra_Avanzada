@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD</title>
+    <link rel="stylesheet" href="/Examen_Hito_2/css/controlador.css">
 </head>
 <body>
 
     <h2>Registros existentes:</h2>
-    <table border="1">
+    <table border="1" class="tabala">
         <tr>
             <th>ID</th>
             <th>Nombre</th>
@@ -37,7 +38,7 @@
                 echo "<td>" . $row["direccion"] . "</td>";
                 echo "<td>" . $row["ci"] . "</td>";
                 echo "<td>" . $row["email"] . "</td>";
-                echo "<td><a href='actualizar.php?id=" . $row["ID"] . "'>Actualizar</a> | <a href='eliminar.php?id=" . $row["ID"] . "'>Eliminar</a></td>";
+                echo "<td><a class='actu' href='actualizar_controlaodor.php?ID=" . $row["ID"] . "'>Actualizar</a> | <a class='elim' href='eliminar_controlador.php?ID=" . $row["ID"] . "'>Eliminar</a></td>";
                 echo "</tr>";
             }
         } else {
@@ -47,6 +48,8 @@
         $conn->close();
         ?>
     </table>
+    <br>
+    <button class="botonsub"><a href="/Examen_Hito_2/vista.html">Volver al Registro</a></button>
 </body>
 </html>
 
@@ -62,16 +65,12 @@
         $direccion = $_POST['direccion'];
         $ci = $_POST['ci'];
         $email = $_POST['email'];
-        
 
-        $nombre = $_POST["nombre"];
-        $apellido = $_POST["apellido"];
-        $email = $_POST["email"];
 
-        $sql = "INSERT INTO tabla (nombre, apellido, email) VALUES ('$nombre', '$apellido', '$email')";
+        $sql = "INSERT INTO usuario (nombre,paterno,materno,direccion,ci,email) VALUES ('$nombre', '$paterno', '$materno', '$direccion', '$ci', '$email')";
 
         if ($conn->query($sql) === TRUE) {
-            header("Location: index.php"); // Redirige a la página principal
+            header("Location: controlador.php"); 
         } else {
             echo "Error al insertar registro: " . $conn->error;
         }
@@ -79,4 +78,6 @@
         $conn->close();
     }
 ?>
+
+
 

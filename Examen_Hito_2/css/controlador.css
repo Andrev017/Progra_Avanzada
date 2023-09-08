@@ -1,0 +1,51 @@
+* {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+table {
+    width: 80%; /* Ancho de la tabla */
+    margin: 0 auto; /* Centrar la tabla horizontalmente */
+    border-collapse: collapse; /* Colapsar bordes de la tabla */
+    font-family: Arial, sans-serif; /* Fuente del texto en la tabla */
+}
+
+th, td {
+    padding: 10px; 
+    text-align: center; 
+    border: 2px solid black; /* Borde de las celdas */
+}
+
+th {
+    background-color: #04724d; /* Fondo del encabezado */
+    font-weight: bold; /* Texto en negrita en el encabezado */
+}
+
+
+tr:nth-child(odd) {
+    background-color: #67b99a; /* Fondo de filas impares */
+}
+
+.actu{
+    color: blue;
+}
+
+.elim{
+    color: red;
+}
+
+.botonsub{
+    font-weight: 700;
+    color: black;
+    padding: 10px 25px;
+    background: #04724d;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.botonsub:hover {
+    background-color: #67b99a;
+    color: #000;
+    transform: scale(1.2);
+}

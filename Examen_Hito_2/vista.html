@@ -12,7 +12,7 @@ Este formulario también tiene que tener los archivos controlador.php y modelo.p
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="/Examen_Hito_2/vista.css">
+    <link rel="stylesheet" href="/Examen_Hito_2/css/vista.css">
 
     <script type="text/javascript">
         const emailValido = email => {
@@ -56,7 +56,7 @@ Este formulario también tiene que tener los archivos controlador.php y modelo.p
         <h1>REGIRTRO</h1>
         <br>
 
-        <form name="formjs" method = "post" action = "/Examen_Hito_2/modelo.php" onsubmit="return validar(this)">
+        <form name="formjs" method = "post" action="/Examen_Hito_2/controlador.php" onsubmit="return validar(this)">
 
 
             <input type="text" name="nombre" required  placeholder="Nombre" minlength="2" maxlength="50" pattern="[A-Za-z]+">
@@ -84,6 +84,5 @@ Este formulario también tiene que tener los archivos controlador.php y modelo.p
             <input type = "submit" id="aceptar" value="ENVIAR" class="botonsub">
         </form>
     </section>
-    
 </body>
 </html>
